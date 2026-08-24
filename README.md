@@ -15,16 +15,20 @@
 
 ## 订阅方式
 
-### Apple 日历 / iPhone / Mac
+### 推荐订阅地址（Cloudflare R2，国内更快）
 
-复制以下任一链接，添加到日历订阅：
+```
+https://s4.03-a.org/100days.ics
+```
+
+### 备用地址
 
 **GitHub 原始地址：**
 ```
 https://raw.githubusercontent.com/CY-Christin/100days-calendar/main/100days.ics
 ```
 
-**jsDelivr CDN（推荐，国内更快）：**
+**jsDelivr CDN：**
 ```
 https://cdn.jsdelivr.net/gh/CY-Christin/100days-calendar/100days.ics
 ```
