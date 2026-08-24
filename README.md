@@ -25,7 +25,7 @@ https://s4.03-a.org/100days.ics
 
 **GitHub 原始地址：**
 ```
-https://raw.githubusercontent.com/CY-Christin/100days-calendar/main/100days.ics
+https://raw.githubusercontent.com/CY-Christin/100days-calendar/master/100days.ics
 ```
 
 **jsDelivr CDN：**
