@@ -14,15 +14,27 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Debug R2 config
+        env:
+          R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
+          R2_BUCKET: ${{ secrets.R2_BUCKET }}
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+        run: |
+          echo "Account ID length: ${#R2_ACCOUNT_ID}"
+          echo "Bucket: $R2_BUCKET"
+          echo "Access Key length: ${#R2_ACCESS_KEY_ID}"
+          echo "Endpoint will be: https://${R2_ACCOUNT_ID}.r2.cloudflarestorage.com"
+
       - name: Upload to R2
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
-          AWS_DEFAULT_REGION: auto
+          AWS_DEFAULT_REGION: us-east-1
           AWS_ENDPOINT_URL: https://${{ secrets.R2_ACCOUNT_ID }}.r2.cloudflarestorage.com
         run: |
           aws s3 cp 100days.ics s3://${{ secrets.R2_BUCKET }}/100days.ics \
             --endpoint-url "$AWS_ENDPOINT_URL" \
+            --region us-east-1 \
             --content-type "text/calendar; charset=utf-8" \
             --cache-control "public, max-age=3600"
           echo "✅ Uploaded successfully to https://s4.03-a.org/100days.ics"
