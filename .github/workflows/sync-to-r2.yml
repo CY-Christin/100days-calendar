@@ -14,17 +14,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Debug R2 config
-        env:
-          R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
-          R2_BUCKET: ${{ secrets.R2_BUCKET }}
-          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
-        run: |
-          echo "Account ID length: ${#R2_ACCOUNT_ID}"
-          echo "Bucket: $R2_BUCKET"
-          echo "Access Key length: ${#R2_ACCESS_KEY_ID}"
-          echo "Endpoint will be: https://${R2_ACCOUNT_ID}.r2.cloudflarestorage.com"
-
       - name: Upload to R2
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
